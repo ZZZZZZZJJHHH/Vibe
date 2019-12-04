@@ -65,6 +65,7 @@ def update_background(img, samples, fg_mask, sample_num, update_factor):
         for j in range(width):
             # 若为背景，则更新样本集
             if not fg_mask[i, j]:
+                # 更新当前像素样本集
                 rand = random.randint(0, update_factor - 1)
                 if (rand == 0):
                     # 随机选择样本

@@ -9,6 +9,7 @@ c_xoff = [-1, 0, 1, -1, 1, -1, 0, 1]
 c_yoff = [1, 1, 1, 0, 0, -1, -1, -1]
 
 
+
 # 初始化样本集
 # 输入参数：图像，样本数
 def initial_background(img, sample_num):
@@ -63,6 +64,7 @@ def update_background(img, samples, fg_mask, sample_num, update_factor):
         for j in range(width):
             # 若为背景，则更新样本集
             if not fg_mask[i, j]:
+                # 更新当前像素样本集
                 rand = random.randint(0, update_factor - 1)
                 if (rand == 0):
                     # 随机选择样本
@@ -87,7 +89,7 @@ def update_background(img, samples, fg_mask, sample_num, update_factor):
 
 
 # 数据集的根目录
-rootDir = '/Users/mac/数据集/dataset2012/highway/input'
+rootDir = '/Users/mac/数据集/dataset2012/PETS2006/input'
 # 对所有文件排序
 lists = sorted(os.listdir(rootDir))
 # 是否初始化的标识位
