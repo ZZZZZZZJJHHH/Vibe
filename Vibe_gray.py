@@ -116,4 +116,6 @@ for list in lists:
     samples = update_background(current, samples, fg_mask, default_sample_num, default_update_factor)
     cv2.imshow('input', current)
     cv2.imshow('foreground', fg_mask)
+    # 保存二值化图片
+    cv2.imwrite("/Users/mac/数据集/dataset2012/PETS2006/output/" + list.replace("in", "out"), fg_mask)
     cv2.waitKey(1)
